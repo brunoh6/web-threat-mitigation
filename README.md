@@ -25,23 +25,54 @@ This repository documents a lab focused on simulating, analyzing, and mitigating
 ## Lab Workflow
 
 1. **WebGoat Deployment** on CentOS using Docker, exposed on port 8080.
+
+![webgoat](screenshots/debian_webgoat.jpg)
+
+![webgoat_on](screenshots/webgoat_on.jpg)
+
+![vulne](screenshots/site_vulne.jpg)
+
 2. **Initial Scanning** from Kali Linux using OWASP ZAP:
    - High-risk alerts: SQL Injection, Spring4Shell
    - Medium: Missing CSP, CSRF Tokens, Parameter Tampering
    - Info: Version leaks, potential XSS, session issues
+
+![dock](screenshots/docker.jpg)
+
+![dock_on](screenshots/docker_on.jpg)
+
 3. **Reverse Proxy Deployment** on Debian 12 using nginx.
+
+![proxy](screenshots/proxy_webgoat_debian.jpg)
+
 4. **WAF Setup** with OWASP CRS and rules loaded from:
    ```
    /etc/nginx/coreruleset-4.9.0/crs-setup.conf
    /etc/nginx/coreruleset-4.9.0/rules/*.conf
    ```
    Rules were tested and enabled by checking ModSecurity logs.
+
+![cure](screenshots/coreruleset.png)
+
+![cure_on](screenshots/coreruleset_on.png)
+
+![cure_v](screenshots/coreruleset_vuln.png)
+
 5. **Post-WAF Scanning** using OWASP ZAP showed:
    - Reduced alerts (blocked or masked responses)
    - Confirmation of WAF protection in place
+
+![mod](screenshots/modsec.jpg)
+
+![mod_v](screenshots/modsec_vuln.png)
+
 6. **Exploit Testing** using Metasploit against Spring4Shell:
    - Without WAF: RCE successful (reverse shell payload)
    - With WAF: Exploit blocked due to CRS detection
+
+![sp4](screenshots/spring4shell_options.jpg)
+
+![sp4_ex](screenshots/spring4shell_exploit.png)
 
 ## Conclusion
 
