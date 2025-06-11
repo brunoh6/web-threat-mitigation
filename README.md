@@ -51,10 +51,7 @@ The lab shows the importance of layered security:
 - ModSecurity and OWASP CRS effectively reduce attack surface
 - WAFs can block real-world CVEs like Spring4Shell with proper tuning
 
-## Structure
+## Author
 
-web-threat-mitigation-lab/
-├── README.md
-├── lab_summary_en.md
-├── lab_summary_es.md
-└── screenshots/
+Bruno Paolo Huamán Vela  (Lima, Peru)
+Cybersecurity Student – Ural Federal University (UrFU)  
